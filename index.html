@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>CoachMap</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+  <link rel="import" href="bower_components/google-map/google-map.html">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  google-map {
+    display: block;
+    height: 100%;
+    position: initial;
+  }
+</style>
+</head>
+
+<body unresolved>
+  <google-map map="{{map}}" latitude="40.76318"
+              longitude="-73.9735" zoom="13" styles='[
+  {
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "color": "#808080" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "color": "#707070" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      { "visibility": "on" }
+    ]
+  }
+]'>
+<template id="store-markers" is="auto-binding" repeat="{{stores}}">
+  <google-map-marker latitude="{{a}}" longitude="{{o}}" icon="https://cdn0.iconfinder.com/data/icons/30_Free_Black_ToolBar_Icons/40/Black_MapDrop.png">Coach</google-map-marker>
+</template>
+</google-map>
+<script>
+  document.querySelector('#store-markers').stores = [
+    {a:40.753683, o:-73.979160},
+    {a:40.737036, o:-73.992335},
+    {a:40.734849, o:-74.004898},
+    {a:40.725760, o:-74.000886},
+    {a:40.751105, o:-73.989766},
+    {a:40.758687, o:-73.977910},
+    {a:40.762447, o:-73.972032},
+    {a:40.767886, o:-73.982728},
+
+    ]
+</script>
+</body>
+</html>
